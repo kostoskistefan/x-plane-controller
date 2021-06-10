@@ -3,6 +3,7 @@
 
 #include "definitions.h"
 
-void InitializeEverything();
+void InitializePins();
+void InitializeSerial();
 
 #endif

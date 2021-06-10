@@ -1,8 +1,16 @@
 #include "definitions.h"
+#include "X_Plane.h"
+#include "Encoder.h"
+#include "Calibration.h"
+#include "Initialization.h"
 
 void setup()
 {
-    InitializeEverything();
+    InitializePins();
+    InitializeSerial();
+    InitializeEncoderInterrupts();
+    InitializeXPlane();
+    
     CalibrateSensors();
     SubscribeToXPlaneData();
 }

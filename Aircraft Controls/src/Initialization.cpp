@@ -11,10 +11,3 @@ void InitializeSerial()
     Serial.begin(115200);
     while (!Serial);
 }
-
-void InitializeEverything()
-{
-    InitializePins();
-    InitializeSerial();
-    InitializeEncoderInterrupts();
-}
