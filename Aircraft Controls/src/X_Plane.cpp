@@ -1,5 +1,8 @@
 #include <X_Plane.h>
 
+EthernetUDP udp;
+uint8_t mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+
 void InitializeXPlane()
 {
     Ethernet.begin(mac, IPAddress(192, 168, 0, 150));
@@ -15,12 +18,15 @@ void SendPacket(char * header, uint16_t size)
 
 void SetDataRef(char *dref, float value)
 {
-    DREF req;
+    struct __attribute__((packed))
+    {
+        char dummy[3];
+        char hdr[5] = "DREF";
+        float dref_val;
+        char dref_path[500] = {0x20};
+    } req;
 
     req.dref_val = value;
-
-    // for (uint16_t x = 0; x < sizeof(req.dref_path); x++)
-    //     req.dref_path[x] = 0x20;
 
     strcpy((char *)req.dref_path, (char *)dref);
 
@@ -29,13 +35,17 @@ void SetDataRef(char *dref, float value)
 
 void SubscribeToDataRef(char *dref, uint32_t index)
 {
-    RREF req;
+    struct __attribute__((packed))
+    {
+        char dummy[3];
+        char hdr[5] = "RREF";
+        uint32_t dref_freq;
+        uint32_t dref_index;
+        char dref_path[400] = {0x20};
+    } req;
 
     req.dref_freq = 2;
     req.dref_index = index;
-
-    // for (uint16_t x = 0; x < sizeof(req.dref_path); x++)
-    //     req.dref_path[x] = 0x20;
 
     strcpy((char *)req.dref_path, (char *)dref);
 

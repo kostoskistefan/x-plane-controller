@@ -1,8 +1,8 @@
-#include "definitions.h"
-#include "X_Plane.h"
-#include "Encoder.h"
-#include "Calibration.h"
+#include "Definitions.h"
 #include "Initialization.h"
+#include "Calibration.h"
+#include "Encoder.h"
+#include "X_Plane.h"
 
 void setup()
 {

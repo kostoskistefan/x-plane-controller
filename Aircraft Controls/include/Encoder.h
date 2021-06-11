@@ -1,10 +1,12 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
-#include "definitions.h"
+#pragma once
+
+#include "Definitions.h"
 #include <RotaryEncoder.h>
 
-RotaryEncoder elevatorTrimEncoder(ENCODER_LEFT, ENCODER_RIGHT, RotaryEncoder::LatchMode::TWO03);
+extern RotaryEncoder elevatorTrimEncoder;
 
 void InitializeEncoderInterrupts();
 void CheckEncoder();

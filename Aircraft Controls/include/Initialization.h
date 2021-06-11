@@ -1,7 +1,9 @@
 #ifndef INITIALIZATION_H
 #define INITIALIZATION_H
 
-#include "definitions.h"
+#pragma once
+
+#include "Definitions.h"
 
 void InitializePins();
 void InitializeSerial();

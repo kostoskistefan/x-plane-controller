@@ -1,7 +1,9 @@
 #ifndef CALIBRATION_H
 #define CALIBRATION_H
 
-#include "definitions.h"
+#pragma once
+
+#include "Definitions.h"
 
 void CalibrateSensors();
 

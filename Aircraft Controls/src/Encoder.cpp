@@ -1,14 +1,16 @@
 #include <Encoder.h>
 
-void InitializeEncoderInterrupts()
-{
-    attachInterrupt(digitalPinToInterrupt(ENCODER_LEFT), EncoderTick, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(ENCODER_RIGHT), EncoderTick, CHANGE);
-}
+RotaryEncoder elevatorTrimEncoder(ENCODER_LEFT, ENCODER_RIGHT, RotaryEncoder::LatchMode::TWO03);
 
 void EncoderTick()
 {
     elevatorTrimEncoder.tick();
+}
+
+void InitializeEncoderInterrupts()
+{
+    attachInterrupt(digitalPinToInterrupt(ENCODER_LEFT), EncoderTick, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(ENCODER_RIGHT), EncoderTick, CHANGE);
 }
 
 void CheckEncoder()

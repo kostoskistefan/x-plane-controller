@@ -17,6 +17,6 @@ class TFT {
         void InitializeDisplay();
         void DrawContainers();
         void DrawValues(int index, int value);
-}
+};
 
 #endif
